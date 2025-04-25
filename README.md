@@ -30,7 +30,10 @@ User entity
 P.S. pdf files are stored in /static/assets/pdfs/
 but cause of their size they cant be added here.
 
+
 <br>
+
+### Future Plans 
 
 1. Change AI model to claude haiku - Make chat with characters actually interesting and enjoyable 
 2. Add security - Add login pages and make site https
