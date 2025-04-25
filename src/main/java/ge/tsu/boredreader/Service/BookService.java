@@ -1,0 +1,45 @@
+package ge.tsu.boredreader.Service;
+
+import ge.tsu.boredreader.entity.Book;
+import ge.tsu.boredreader.repository.BookRepository;
+import jakarta.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class BookService {
+    private static final Logger log = LoggerFactory.getLogger(BookService.class);
+
+    private final BookRepository bookRepository;
+
+    @Autowired
+    public BookService(BookRepository bookRepository) {
+        this.bookRepository = bookRepository;
+    }
+
+    @PostConstruct
+    public void initBooks() {
+
+        if (bookRepository.count() == 0) {
+            Book book1 = new Book();
+            book1.setTitle("Evangelion");
+            book1.setAuthor("Hideaki Anno");
+            book1.setDescription("Apocalyptic Mecha Psychological drama");
+            book1.setCoverImagePath("/static/assets/covers/eva.png");
+            book1.setFilename("/static/assets/pdfs/Eva.pdf");
+            bookRepository.save(book1);
+
+            Book book2 = new Book();
+            book2.setTitle("Sherlock Holmes");
+            book2.setAuthor("A. Conan Doyle");
+            book2.setDescription("Classic detective stories");
+            book2.setCoverImagePath("/static/assets/covers/sherlock.jpg");
+            book2.setFilename("/static/assets/pdfs/Sherlock.pdf");
+            bookRepository.save(book2);
+
+            log.info("Added sample books to database");
+        }
+    }
+}

@@ -1,23 +1,27 @@
-# boredreader
-website for reading books, mangas and etc. and were u can chat with ai assistants.
 
-requirement  :
-1) მინიმუმ 4 გვერდი (თავისი კონტროლერებით) (REST-ის შემთხვევაში რამე Front-end ფრეიმვორკმა უნდა გამოიყენოს)
-2) მონაცემთა ბაზას უნდა იყენებდეთ (მინიმუმ 2 entity კლასი უნდა გქონდეთ)
-3) უნდა გქონდეთ ერთი ფორმა მაინც რომლითაც რაღაცას გააგზავნით კონტროლერისკენ POST მოთხოვნით.
-   ამ ფორმის ვალიდაციაც უნდა გქონდეთ გაკეთებული.
+# BoredReader
+
+PDF Reading site with ability to chat context awear AI models that imitate main characters.
+
+## showcase
+![showcase](showcase.gif)
+
+## Requirements Fulfilled
+
+**4+ Pages with Controllers:**
+
+Home page 
+Catalog page 
+Reader page
+About page 
 
 
-plans based on requirements :
-1)
-1 გვერდი-pdf.js reading / assistant chat  
-2 გვერდი-catalog
-3 გვერდი-peoples comments
-4 გვერდი-ab us/index
-2)მონაცემთა ბაზას გამოვიყენებთ კომენტებისთვის
-ასევე შეიძლებვა პრომპტ ისტორიის შესანახად.
 
-3)
-1.პოსტით გავაგზვნით მოთხოვნას აი ასისტენტთან(ჯერჯერობით ოლლამას tinyllama:1.1b, 
-მომავალში ფინალურამდე შევცვლი claude haiku-ზე )
-2.პოსტ ფორმა კომმენტ ფრომ კომიუნიტი.
+**Database with 2+ Entity Classes:**
+
+Book entity
+ChatMessage entity
+User entity
+
+
+**Form with POST Request**

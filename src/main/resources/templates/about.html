@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+  <title>About BoredReader</title>
+</head>
+<body>
+<main layout:fragment="content" class="container py-5">
+  <div class="row mb-5">
+    <div class="col-lg-8 mx-auto text-center">
+      <h1 class="display-4 mb-4">About Bored<span class="text-primary">Reader</span></h1>
+      <p class="lead">Your AI-Powered Reading Companion</p>
+      <hr class="my-4">
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-md-6">
+      <h2 class="mb-4"><i class="fas fa-lightbulb text-primary me-2"></i>About BoredReader</h2>
+      <p>One day, I saw my young relative looking bored while reading a book, and it made me think—maybe my project could help her enjoy reading a bit more xd</p>
+      <p>With this tool, you, your kids, or even your parents can make reading more fun and interactive. Ever wondered why the main character made such a stupid move... well it's your time to ask them ;) </p>
+    </div>
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <img src="/static/assets/images/pepe.png" alt="pepe greeting you img" class="about-image">
+    </div>
+  </div>
+
+  <div class="row mb-5">
+    <div class="col-md-6 order-md-2">
+      <h2 class="mb-4"><i class="fas fa-cogs text-primary me-2"></i>How It Works</h2>
+      <p>BoredReader combines several technologies:</p>
+      <ul class="list-unstyled">
+        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>PDF.js</strong> - For rendering books directly in your browser</li>
+        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Spring Boot</strong> - backend </li>
+        <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>TinyLlama</strong> -AI model only for initial showcasing </li>
+      </ul>
+      <p>When you ask a question, system analyzes the current page you're reading and provides context-aware responses</p>
+    </div>
+    <div class="col-md-6 order-md-1 d-flex align-items-center justify-content-center">
+      <img src="/static/assets/images/hiw.png" alt="Technology behind BoredReader" class="about-image">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-8 mx-auto text-center">
+      <h2 class="mb-4"><i class="fas fa-star text-primary me-2"></i>Future Plans</h2>
+      <p>BoredReader is constantly evolving. Our roadmap includes exciting new features to enhance your reading experience:</p>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+          <ul class="list-unstyled">
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Change AI model to claude haiku</strong> - Make chat with characters actually interesting and enjoyable</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Add security</strong> - Add login pages and make site https</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Add community page</strong> - People here will have ability to comment, suggest features and write reviews</li>
+            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i><strong>Other features </strong> - Features matching project requirements  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

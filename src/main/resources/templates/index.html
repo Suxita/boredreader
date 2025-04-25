@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <section class="hero">
+        <div class="container text-center py-5">
+            <h1 class="display-4">Welcome to Bored<span>Reader</span></h1>
+            <p class="lead">Collection of books and characters for not getting bored ;)</p>
+            <a href="/catalog" class="btn btn-primary btn-lg">Explore Library</a>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 book-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-book fa-3x mb-3 text-primary"></i>
+                        <h3 class="card-title">fun Library</h3>
+                        <p class="card-text">you will find here some enjoyable(or not 👀) books.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 book-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-robot fa-3x mb-3 text-primary"></i>
+                        <h3 class="card-title">AI Assistants imitating characters </h3>
+                        <p class="card-text">get ready to chat with your beloved main characters.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 book-card">
+                    <div class="card-body text-center">
+                        <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
+                        <h3 class="card-title">Read Anywhere</h3>
+                        <p class="card-text">Enjoy your books and characters wherever you go.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+</html>

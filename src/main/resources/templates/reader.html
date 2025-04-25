@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="${book.title}">Reader</title>
+    <script th:src="@{/js/app.js}"></script>
+</head>
+<body>
+<main layout:fragment="content" class="p-0">
+    <input type="hidden" id="bookId" th:value="${book.id}">
+
+    <div class="reader-container">
+        <div class="row g-0 h-100">
+            <div id="pdfViewer" class="col-md-9 position-relative" th:data-pdf-url="@{'/'+${book.filename}}">
+                <div class="toolbar">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <button class="btn btn-secondary" id="previous">
+                                <i class="fas fa-chevron-left me-1"></i>Previous
+                            </button>
+                            <span class="mx-3" id="pageNumber"></span>
+                            <button class="btn btn-secondary" id="next">
+                                Next<i class="fas fa-chevron-right ms-1"></i>
+                            </button>
+                        </div>
+                        <div>
+                            <button class="btn btn-light" id="chatToggle">
+                                <i class="fas fa-comments"></i> Toggle Assistant
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-center align-items-center h-100">
+                    <canvas id="canvas" class="h-100"></canvas>
+                </div>
+            </div>
+
+            <div id="chatSidebar" class="col-md-3 chat-sidebar">
+                <div class="h-100 d-flex flex-column">
+                    <div class="chat-header">
+                        <h5 class="mb-0"><i class="fas fa-robot me-2"></i>Book Assistant</h5>
+                    </div>
+                    <div class="chat-messages flex-grow-1" id="chatMessages">
+                        <div class="ai-message">
+                            <p>Hello! I'm your book assistant. Ask me anything about the content you're reading.</p>
+                        </div>
+                    </div>
+                    <div class="chat-input">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="chatInput"
+                                   placeholder="Ask about this page...">
+                            <button class="btn btn-primary" id="sendMessage">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+</body>
+</html>
