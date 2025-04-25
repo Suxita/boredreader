@@ -26,5 +26,6 @@ User entity
 
 **Form with POST Request**
 
-pdf files are stored in /static/assets/pdfs/
+<br>
+P.S. pdf files are stored in /static/assets/pdfs/
 but cause of their size they cant be added here.
