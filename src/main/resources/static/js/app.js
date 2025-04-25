@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         setupChat();
     };
 
-    // Add window resize handler for responsive rendering
     window.addEventListener('resize', () => {
         if (currentPdfDoc) {
             renderPage(currentPdfDoc, currentPage);
