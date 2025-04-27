@@ -105,3 +105,6 @@ Spring AI is a Java library that provides integration between LLMs and the Sprin
 ***Useful links for more detailed information***
 1) [ollamas github](https://github.com/ollama/ollama)
 2) [Spring ai](https://spring.io/projects/spring-ai)
+
+### Ps
+forgot to add that u can train local llms with your own data, it might be fun and challenging, the possibility is there 
