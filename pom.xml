@@ -47,11 +47,7 @@
 			<artifactId>font-awesome</artifactId>
 			<version>6.7.2</version>
 		</dependency>
-		<!-- For Maven -->
 
-
-
-		<!-- Spring Boot Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>

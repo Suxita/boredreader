@@ -1,10 +1,23 @@
 
 # BoredReader
 
-PDF Reading site with ability to chat context awear AI models that imitate main characters.
+--- 
+
+***Reading site with ability to chat context awear AI models that imitate main characters.***
+
+
+##  Documentation
+1) [Ollama and spring ai](/src/docs/Ollama.md)
+
+2) [structure](/src/docs/Structure.md)
+
+3) [todos and plans on project](/src/docs/TODO.md)
+
+---
 
 ## showcase
 ![showcase](showcase.gif)
+
 
 ## Requirements Fulfilled
 
@@ -31,11 +44,3 @@ P.S. pdf files are stored in /static/assets/pdfs/
 but cause of their size they cant be added here.
 
 
-<br>
-
-### Future Plans 
-
-1. Change AI model to claude haiku - Make chat with characters actually interesting and enjoyable 
-2. Add security - Add login pages and make site https
-3. Add community page - People here will have ability to comment, suggest features and write reviews 
-4. other...
