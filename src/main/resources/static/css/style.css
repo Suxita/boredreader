@@ -266,3 +266,46 @@ footer a:hover {
     box-shadow: none;
     filter: drop-shadow(0 0 0 transparent);
 }
+.dropdown-toggle {
+    color: white;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.dropdown-toggle:hover {
+    color: var(--accent-color);
+}
+
+.dropdown-menu {
+    background-color: var(--light-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    border: none;
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: var(--transition);
+}
+
+.dropdown-item:hover {
+    background-color: rgba(62, 104, 255, 0.1);
+    color: var(--primary-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    .dropdown-menu {
+        background-color: #343a40;
+    }
+
+    .dropdown-item {
+        color: #e9ecef;
+    }
+
+    .dropdown-item:hover {
+        background-color: rgba(62, 104, 255, 0.2);
+    }
+}

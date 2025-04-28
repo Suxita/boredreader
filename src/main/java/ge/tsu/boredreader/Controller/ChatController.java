@@ -1,9 +1,9 @@
 package ge.tsu.boredreader.Controller;
 
-import ge.tsu.boredreader.entity.Book;
-import ge.tsu.boredreader.entity.ChatMessage;
-import ge.tsu.boredreader.repository.BookRepository;
-import ge.tsu.boredreader.repository.ChatMessageRepository;
+import ge.tsu.boredreader.sql_db.entity.Book;
+import ge.tsu.boredreader.sql_db.entity.ChatMessage;
+import ge.tsu.boredreader.sql_db.repository.BookRepository;
+import ge.tsu.boredreader.sql_db.repository.ChatMessageRepository;
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -9,9 +9,9 @@
 <main layout:fragment="content">
     <section class="hero">
         <div class="container text-center py-5">
-            <h1 class="display-4">Welcome to Bored<span>Reader</span></h1>
-            <p class="lead">Collection of books and characters for not getting bored ;)</p>
-            <a href="/catalog" class="btn btn-primary btn-lg">Explore Library</a>
+            <h1 class="display-4" th:text="#{index.Welcome}">Welcome to BoredReader</h1>
+            <p class="lead" th:text="#{index.describe}">Collection of books and characters for not getting bored ;)</p>
+            <a href="/catalog" class="btn btn-primary btn-lg" th:text="#{index.button}">Explore Library</a>
         </div>
     </section>
 
@@ -21,8 +21,8 @@
                 <div class="card h-100 book-card">
                     <div class="card-body text-center">
                         <i class="fas fa-book fa-3x mb-3 text-primary"></i>
-                        <h3 class="card-title">fun Library</h3>
-                        <p class="card-text">you will find here some enjoyable(or not 👀) books.</p>
+                        <h3 class="card-title" th:text="#{index.card1Title}">fun Library</h3>
+                        <p class="card-text" th:text="#{index.card1Describe}">you will find here some enjoyable(or not 👀) books.</p>
                     </div>
                 </div>
             </div>
@@ -30,8 +30,8 @@
                 <div class="card h-100 book-card">
                     <div class="card-body text-center">
                         <i class="fas fa-robot fa-3x mb-3 text-primary"></i>
-                        <h3 class="card-title">AI Assistants imitating characters </h3>
-                        <p class="card-text">get ready to chat with your beloved main characters.</p>
+                        <h3 class="card-title" th:text="#{index.card2Title}">AI Assistants imitating characters </h3>
+                        <p class="card-text" th:text="#{index.card2Describe}">get ready to chat with your beloved main characters.</p>
                     </div>
                 </div>
             </div>
@@ -39,8 +39,8 @@
                 <div class="card h-100 book-card">
                     <div class="card-body text-center">
                         <i class="fas fa-mobile-alt fa-3x mb-3 text-primary"></i>
-                        <h3 class="card-title">Read Anywhere</h3>
-                        <p class="card-text">Enjoy your books and characters wherever you go.</p>
+                        <h3 class="card-title" th:text="#{index.card3Title}">Read Anywhere</h3>
+                        <p class="card-text" th:text="#{index.card3Describe}">Enjoy your books and characters wherever you go.</p>
                     </div>
                 </div>
             </div>

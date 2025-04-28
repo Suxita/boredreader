@@ -1,7 +1,7 @@
 package ge.tsu.boredreader.Service;
 
-import ge.tsu.boredreader.entity.Book;
-import ge.tsu.boredreader.repository.BookRepository;
+import ge.tsu.boredreader.sql_db.entity.Book;
+import ge.tsu.boredreader.sql_db.repository.BookRepository;
 import jakarta.annotation.PostConstruct;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

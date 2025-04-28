@@ -13,13 +13,43 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/catalog">Library</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}" th:text="#{nav.home}"></a></li>
+                    <li class="nav-item"><a class="nav-link"th:href="@{/catalog}" th:text="#{nav.catalog}">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}" th:text="#{nav.about}">About</a></li>
                 </ul>
+
+                <div class="ms-auto">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-globe me-1"></i> <span th:text="#{language.switch}">Change Language</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                            <li><a class="dropdown-item" href="?lang=en">English</a></li>
+                            <li><a class="dropdown-item" href="?lang=ka">ქართული</a></li>
+                            <li><a class="dropdown-item" href="?lang=ru">Русский</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 </header>
+
+
+<!-- Make sure you include Bootstrap JS for the dropdown functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add active class to current language
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentLang = urlParams.get('lang') || 'en';
+
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+            const itemLang = item.href.split('=')[1];
+            if (itemLang === currentLang) {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
 </body>
 </html>

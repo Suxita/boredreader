@@ -1,7 +1,7 @@
 package ge.tsu.boredreader.Controller;
 
-import ge.tsu.boredreader.entity.Book;
-import ge.tsu.boredreader.repository.BookRepository;
+import ge.tsu.boredreader.sql_db.entity.Book;
+import ge.tsu.boredreader.sql_db.repository.BookRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
