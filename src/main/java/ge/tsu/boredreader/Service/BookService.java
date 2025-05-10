@@ -39,6 +39,22 @@ public class BookService {
             book2.setFilename("/static/assets/pdfs/Sherlock.pdf");
             bookRepository.save(book2);
 
+
+            Book book3 = new Book();
+            book3.setTitle("Harry Potter");
+            book3.setAuthor("J.K. Rowling");
+            book3.setDescription("a boy who survived");
+            book3.setCoverImagePath("/static/assets/covers/hpp.jpg");
+            book3.setFilename("/static/assets/pdfs/hpp.pdf");
+            bookRepository.save(book3);
+
+            Book book4 = new Book();
+            book4.setTitle("Jojo");
+            book4.setAuthor("Hirohiko Araki");
+            book4.setDescription("to be continued...");
+            book4.setCoverImagePath("/static/assets/covers/jojo.png");
+            book4.setFilename("/static/assets/pdfs/jojo.pdf");
+            bookRepository.save(book4);
             log.info("Added sample books to database");
         }
     }

@@ -309,3 +309,74 @@ footer a:hover {
         background-color: rgba(62, 104, 255, 0.2);
     }
 }
+
+
+/* Search bar styles with animation */
+.search-container {
+    position: absolute;
+    right: 280px; /* Adjust this value to control distance from right edge */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 2px solid var(--primary-color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: white;
+    outline: none;
+    transition: all 0.5s ease;
+}
+
+.search-container:hover .search-input {
+    width: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.search-input::placeholder {
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.search-container:hover .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s ease;
+}
+
+.search-container:hover .search-icon {
+    opacity: 0.5;
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+    .search-input {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    .search-input:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .search-container {
+        width: 200px;
+    }
+}

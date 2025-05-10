@@ -2,7 +2,6 @@ package ge.tsu.boredreader.Controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.http.HttpHeaders;
@@ -10,14 +9,16 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+// IMPORTANT: Changed the RequestMapping here
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 @Controller
-@RequestMapping("/static/assets/pdfs")
+// Changed the base mapping from "/static/assets/pdfs"
+@RequestMapping("/assets/pdfs")
 public class PdfController {
     private static final Logger logger = LoggerFactory.getLogger(PdfController.class);
 
@@ -32,7 +33,7 @@ public class PdfController {
         try {
             logger.debug("Attempting to load PDF: {}", filename);
 
-
+            // The classpath resource path likely remains the same if your files are still in src/main/resources/static/assets/pdfs
             String resourcePath = "classpath:static/assets/pdfs/" + filename;
             logger.debug("Looking for PDF at resource path: {}", resourcePath);
 
@@ -42,7 +43,6 @@ public class PdfController {
                 logger.error("PDF resource not found: {}", resourcePath);
                 return ResponseEntity.notFound().build();
             }
-
 
             byte[] pdfBytes;
             try (InputStream inputStream = resource.getInputStream()) {

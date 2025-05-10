@@ -2,6 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 <header th:fragment="header">
@@ -14,14 +16,20 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link" th:href="@{/}" th:text="#{nav.home}"></a></li>
-                    <li class="nav-item"><a class="nav-link"th:href="@{/catalog}" th:text="#{nav.catalog}">Library</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/catalog}" th:text="#{nav.catalog}">Library</a></li>
                     <li class="nav-item"><a class="nav-link" th:href="@{/about}" th:text="#{nav.about}">About</a></li>
                 </ul>
+
+                <!-- Search Box added here -->
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Поиск книг...">
+                    <i class="search-icon fas fa-search"></i>
+                </div>
 
                 <div class="ms-auto">
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-globe me-1"></i> <span th:text="#{language.switch}">Change Language</span>
+                            <span th:text="#{language.switch}">Change Language</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
                             <li><a class="dropdown-item" href="?lang=en">English</a></li>
@@ -34,7 +42,6 @@
         </div>
     </nav>
 </header>
-
 
 <!-- Make sure you include Bootstrap JS for the dropdown functionality -->
 <script>
