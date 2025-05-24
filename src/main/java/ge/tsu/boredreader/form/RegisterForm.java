@@ -1,4 +1,3 @@
-// RegisterForm.java
 package ge.tsu.boredreader.form;
 
 import jakarta.validation.constraints.AssertTrue;

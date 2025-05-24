@@ -1,4 +1,3 @@
-// LoginController.java
 package ge.tsu.boredreader.Controller;
 
 import org.springframework.stereotype.Controller;

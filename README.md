@@ -4,7 +4,7 @@
 --- 
 
 ***Reading site with ability to chat context awear AI models that imitate main characters.***
-
+second iteration.
 
 ##  Documentation
 1) [Ollama and spring ai](/src/docs/Ollama.md)
@@ -15,32 +15,17 @@
 
 
 
-## showcase
-![showcase](showcase.gif)
+## second iteration showcase
+![second](second.gif)
 
 
-## Requirements Fulfilled
+login register
 
-**4+ Pages with Controllers:**
+secured pages
 
-Home page 
-Catalog page 
-Reader page
-About page 
+3 languages.
 
+<strong>using anthropic claud api instead of ollama. <strong>
 
-
-**Database with 2+ Entity Classes:**
-
-Book entity
-ChatMessage entity
-User entity
-
-
-**Form with POST Request**
-
-<br>
-P.S. pdf files are stored in /static/assets/pdfs/
-but cause of their size they cant be added here.
-
-
+## anthropic showcase
+![khakheli_jojo](src/docs/kakheli_jojo.PNG)

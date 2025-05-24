@@ -1,4 +1,3 @@
-// RegisterController.java
 package ge.tsu.boredreader.Controller;
 
 import ge.tsu.boredreader.Service.UserService;

@@ -1,4 +1,3 @@
-
 package ge.tsu.boredreader.config;
 
 import org.springframework.context.annotation.Bean;
@@ -8,8 +7,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.header.writers.ReferrerPolicyHeaderWriter;
 import ge.tsu.boredreader.Service.CustomUserDetailsService;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -32,6 +31,7 @@ public class SecurityConfig {
                         .requestMatchers("/h2-console/**").permitAll()
                         .requestMatchers("/css/**", "/js/**", "/images/**", "/webjars/**").permitAll()
                         .requestMatchers("/register", "/login").permitAll()
+                        .requestMatchers("/error").permitAll() // Add this line
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
@@ -44,6 +44,7 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .userDetailsService(userDetailsService);
+
 
         return http.build();
     }

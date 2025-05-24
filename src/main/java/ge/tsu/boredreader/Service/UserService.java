@@ -1,4 +1,3 @@
-// UserService.java
 package ge.tsu.boredreader.Service;
 
 import ge.tsu.boredreader.sql_db.entity.Auth;
