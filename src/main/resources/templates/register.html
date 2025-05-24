@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
+<head>
+    <title>Create Account</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="login-hero">
+        <div class="login-card">
+            <div class="login-brand">
+                <h2>Bored<span>Reader</span></h2>
+                <p  th:text="#{login.describe}">Your digital library awaits</p>
+            </div>
+
+            <!-- Register Header -->
+            <div class="login-header">
+                <h1 th:text="#{registr.create}">Create Account</h1>
+                <p>Join us and start your reading journey</p>
+            </div>
+
+
+            <!-- Register Form -->
+            <form th:action="@{/register}" th:object="${registerForm}" method="post" class="login-form">
+                <div class="form-floating">
+                    <input th:field="*{username}" type="text" class="form-control" id="floatingUsername"
+                           placeholder="Username" required
+                           th:classappend="${#fields.hasErrors('username')} ? 'is-invalid' : ''"/>
+                    <label for="floatingUsername" th:text="#{login.username}" th:text="#{login.username}">Username</label>
+                    <div class="invalid-feedback"
+                         th:if="${#fields.hasErrors('username')}" th:errors="*{username}" th:text="#{login.error}">Username error
+                    </div>
+                </div>
+
+                <div class="form-floating">
+                    <input th:field="*{password}" type="password" class="form-control" id="floatingPassword"
+                           placeholder="Password" required
+                           th:classappend="${#fields.hasErrors('password')} ? 'is-invalid' : ''">
+                    <label for="floatingPassword" th:text="#{login.password}">Password</label>
+                    <div class="invalid-feedback"
+                         th:if="${#fields.hasErrors('password')}" th:errors="*{password}" th:text="#{login.error2}">Password error
+                    </div>
+                </div>
+
+                <!-- Confirm Password Field -->
+                <div class="form-floating">
+                    <input th:field="*{confirmPassword}" type="password" class="form-control" id="floatingConfirmPassword"
+                           placeholder="Confirm Password" required
+                           th:classappend="${#fields.hasErrors('confirmPassword')} ? 'is-invalid' : ''">
+                    <label for="floatingConfirmPassword" th:text="#{login.password.conf}">Confirm Password</label>
+                    <div class="invalid-feedback"
+                         th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" th:text="#{login.password.conf.error}">Confirm password error
+                    </div>
+                </div>
+
+
+                <!-- Register Button -->
+                <button type="submit" class="btn btn-primary btn-login" th:text="#{registr.create}">Create Account</button>
+
+                <!-- Alert Messages -->
+                <div class="login-alerts">
+
+
+                    <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert" th:text="#{registr.error}">
+                        <strong>Error!</strong> There was a problem creating your account.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Display field errors if any exist -->
+                    <div th:if="${#fields.hasAnyErrors()}" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <strong> Please fix the following errors:</strong>
+                        <ul class="mb-0 mt-2">
+                            <li th:each="error : ${#fields.allErrors()}" th:text="${error}">Error message</li>
+                        </ul>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Sign In Link -->
+            <div class="signup-link">
+                <p>Already have an account? <a th:href="@{/login}" th:text="#{login.singiin1}">Sign in here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/register-form.js}" layout:fragment="scripts"></script>
+</body>
+</html>
