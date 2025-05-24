@@ -14,10 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
         const pdfUrl = pdfViewer.dataset.pdfUrl;
+        console.log("PDF URL from dataset:", pdfUrl);
 
         initPdfViewer(pdfUrl);
-
-
         setupChat();
     };
 
@@ -42,7 +41,6 @@ async function initPdfViewer(pdfUrl) {
         const loadingTask = pdfjsLib.getDocument(pdfUrl);
         const doc = await loadingTask.promise;
 
-
         currentPdfDoc = doc;
 
         console.log("PDF loaded successfully with", doc.numPages, "pages");
@@ -52,9 +50,7 @@ async function initPdfViewer(pdfUrl) {
         const maxPage = doc.numPages;
         currentPage = 1;
 
-
         await renderPage(doc, currentPage);
-
 
         document.getElementById("pageNumber").innerHTML = `Page ${currentPage} of ${maxPage}`;
 
@@ -86,7 +82,7 @@ async function initPdfViewer(pdfUrl) {
             }
         });
     } catch (error) {
-        console.error("Error initializing PDF viewer:", error); // <-- It's here!
+        console.error("Error initializing PDF viewer:", error);
         document.getElementById("pageNumber").innerHTML = "Error loading PDF. Check console for details.";
     }
 }
@@ -96,34 +92,35 @@ async function renderPage(pdfDoc, pageNumber) {
         console.log("Attempting to render page", pageNumber);
         const page = await pdfDoc.getPage(pageNumber);
         console.log("Page object obtained");
+
         const canvas = document.getElementById("canvas");
         if (!canvas) {
             console.error("Canvas element not found in renderPage");
             return;
         }
         console.log("Canvas element found");
+
         const viewportContainer = document.querySelector('.d-flex.justify-content-center');
         if (!viewportContainer) {
             console.error("Viewport container not found");
             return;
         }
+
         const containerWidth = viewportContainer.clientWidth;
         const containerHeight = viewportContainer.clientHeight;
         console.log("Container dimensions:", containerWidth, containerHeight);
 
         // Set scale to fit within container
-        const viewport = page.getViewport({ scale: 1.0 }); // Fixed: 'viewport' was missing 'const' or 'let'
+        const viewport = page.getViewport({ scale: 1.0 });
         const scaleX = containerWidth / viewport.width;
         const scaleY = containerHeight / viewport.height;
         const scale = Math.min(scaleX, scaleY) * 0.9; // Use 90% of available space
 
-        const scaledViewport = page.getViewport({ scale }); // Fixed formatting
+        const scaledViewport = page.getViewport({ scale });
+        const context = canvas.getContext("2d");
 
-        const context = canvas.getContext("2d"); // Fixed formatting
-
-        canvas.width = scaledViewport.width; // Fixed formatting
-        canvas.height = scaledViewport.height; // Fixed formatting
-
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
 
         const renderContext = {
             canvasContext: context,
@@ -131,7 +128,7 @@ async function renderPage(pdfDoc, pageNumber) {
         };
 
         await page.render(renderContext).promise;
-        console.log("Page render process initiated and likely completed"); // Updated log message
+        console.log("Page render process completed successfully");
 
     } catch (error) {
         console.error("Error during renderPage execution:", error);
@@ -152,19 +149,6 @@ async function getCurrentPageText() {
     }
 }
 
-async function getCurrentPageText() {
-    if (!currentPdfDoc) {
-        return "";
-    }
-    try {
-        const page = await currentPdfDoc.getPage(currentPage);
-        const textContent = await page.getTextContent();
-        return textContent.items.map(item => item.str).join(' ');
-    } catch (error) {
-        console.error("Error getting page text:", error);
-        return "";
-    }
-}
 function setupChat() {
     console.log("Attempting to set up chat...");
     const chatToggle = document.getElementById('chatToggle');
@@ -214,6 +198,7 @@ function setupChat() {
 
     console.log("Chat setup finished.");
 }
+
 async function sendChatMessage() {
     const input = document.getElementById('chatInput');
     const message = input.value.trim();

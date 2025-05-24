@@ -17,13 +17,12 @@ public class ChatMessage {
     private Integer pageNumber;
 
     private boolean aiGenerated;
-
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "username")
     private User user;
 
     public Long getId() {
@@ -74,11 +73,5 @@ public class ChatMessage {
         this.book = book;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+
 }

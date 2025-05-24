@@ -17,7 +17,6 @@ public class Book {
     private String coverImagePath;
     private String filename;
 
-    // Constructors
     public Book() {}
 
     public Book(String title, String author, String description,
@@ -29,7 +28,6 @@ public class Book {
         this.filename = filename;
     }
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -16,17 +16,17 @@ public class LocalizationConfig {
 
     @Bean
     public LocaleResolver localeResolver() {
-        CookieLocaleResolver localeResolver = new CookieLocaleResolver(); // We can pass cookie name also
-        localeResolver.setDefaultLocale(Locale.ENGLISH); // Set default locale
-        localeResolver.setCookieMaxAge(Duration.ofMinutes(60)); // Cookie expiration time in seconds
-        localeResolver.setCookiePath("/"); // "/" means that cookie is accessible for the entire application
+        CookieLocaleResolver localeResolver = new CookieLocaleResolver();
+        localeResolver.setDefaultLocale(Locale.ENGLISH);
+        localeResolver.setCookieMaxAge(Duration.ofMinutes(60));
+        localeResolver.setCookiePath("/");
         return localeResolver;
     }
 
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor interceptor = new LocaleChangeInterceptor();
-        interceptor.setParamName("lang"); // Parameter name to switch locale
+        interceptor.setParamName("lang");
         return interceptor;
     }
 }

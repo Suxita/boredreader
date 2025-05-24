@@ -1,10 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout.html}">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Please Log In</title>
+    <link th:href="@{/css/login.css}" rel="stylesheet">
 </head>
 <body>
+<div layout:fragment="content">
+    <div class="login-hero">
+        <div class="login-card">
+            <div class="login-brand">
+                <h2>Bored<span>Reader</span></h2>
+                <p th:text="#{login.describe}">Your digital library awaits</p>
+            </div>
 
+            <!-- Login Header -->
+            <div class="login-header">
+                <h1 th:text="#{login.welcome}">Welcome Back</h1>
+                <p th:text="#{login.signin}">Please sign in to your account</p>
+            </div>
+
+            <!-- Login Form -->
+            <form th:action="@{/login}" method="post" class="login-form">
+                <div class="form-floating">
+                    <input name="username" type="text" class="form-control" id="floatingUsername"
+                           placeholder="Username" required/>
+                    <label for="floatingUsername" th:text="#{login.username}">Username</label>
+                </div>
+
+                <div class="form-floating">
+                    <input name="password" type="password" class="form-control" id="floatingPassword"
+                           placeholder="Password" required>
+                    <label for="floatingPassword" th:text="#{login.password}">Password</label>
+                </div>
+
+                <!-- Remember Me & Forgot Password -->
+                <div class="remember-forgot">
+                    <div class="form-check">
+                        <input name="remember-me" type="checkbox" class="form-check-input" id="rememberMeCheck">
+                        <label class="form-check-label" for="rememberMeCheck">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link " th:text="#{login.forgot}">Forgot Password?</a>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn btn-primary btn-login" th:text="#{login.log}">Log In</button>
+
+                <!-- Alert Messages -->
+                <div class="login-alerts">
+                    <div th:if="${param.success}" class="alert alert-success alert-dismissible fade show" role="alert" th:text="#{login.register}">
+                        <strong >Success!</strong> You have been registered and can log in.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <div th:if="${param.error}" class="alert alert-danger alert-dismissible fade show" role="alert" th:text="#{login.invalid}">
+                        <strong>Error!</strong> Invalid username and password.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+
+                    <div th:if="${param.logout}" class="alert alert-info alert-dismissible fade show" role="alert" >
+                        <strong>Logged out!</strong> You have been logged out successfully.
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Sign Up Link -->
+            <div class="signup-link">
+                <p>Don't have an account? <a th:href="@{/register}" th:text="#{login.singup}">Sign up here</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script layout:fragment="scripts">
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('.login-form');
+        const submitBtn = document.querySelector('.btn-login');
+
+        // Add loading state on form submission
+        form.addEventListener('submit', function() {
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+        });
+
+        // Add shake animation on error
+        const errorAlert = document.querySelector('.alert-danger');
+        if (errorAlert) {
+            form.classList.add('shake');
+            setTimeout(() => form.classList.remove('shake'), 500);
+        }
+
+        // Auto-dismiss alerts after 5 seconds
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(alert => {
+            setTimeout(() => {
+                if (alert.querySelector('.btn-close')) {
+                    alert.querySelector('.btn-close').click();
+                }
+            }, 5000);
+        });
+
+        // Enhanced input focus effects
+        const inputs = document.querySelectorAll('.form-control');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    });
+</script>
 </body>
 </html>

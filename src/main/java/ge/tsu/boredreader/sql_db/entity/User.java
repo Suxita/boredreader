@@ -1,34 +1,49 @@
+// User.java
 package ge.tsu.boredreader.sql_db.entity;
 
 import jakarta.persistence.*;
+import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
 @Table(name = "users")
 public class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(length = 50, nullable = false)
+    private String username; // Using username as primary key
 
-    @Column(unique = true)
-    private String username;
-
+    @Column(length = 500, nullable = false)
     private String password;
+
+    @Column(nullable = false)
+    private boolean enabled = true;
 
     private String email;
 
     private String fullName;
 
-    @OneToMany(mappedBy = "user")
-    private Set<ChatMessage> messages;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Auth> authorities = new HashSet<>();
 
-    // Getters and Setters
-    public Long getId() {
-        return id;
+    @OneToMany(mappedBy = "user")
+    private Set<ChatMessage> messages = new HashSet<>();
+
+    public User() {}
+
+    public User(String username, String password, boolean enabled) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public User(String username, String password, boolean enabled, String email, String fullName) {
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.email = email;
+        this.fullName = fullName;
     }
 
     public String getUsername() {
@@ -47,6 +62,14 @@ public class User {
         this.password = password;
     }
 
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -63,11 +86,42 @@ public class User {
         this.fullName = fullName;
     }
 
+    public Set<Auth> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Set<Auth> authorities) {
+        this.authorities = authorities;
+    }
+
     public Set<ChatMessage> getMessages() {
         return messages;
     }
 
     public void setMessages(Set<ChatMessage> messages) {
         this.messages = messages;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", enabled=" + enabled +
+                ", email='" + email + '\'' +
+                ", fullName='" + fullName + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username);
     }
 }

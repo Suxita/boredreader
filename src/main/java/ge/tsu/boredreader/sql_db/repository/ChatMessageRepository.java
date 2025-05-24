@@ -11,21 +11,8 @@ import java.util.List;
 
 @Repository
 public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> {
-
+    List<ChatMessage> findByUserUsernameOrderByTimestampDesc(String username);
     List<ChatMessage> findByBookIdOrderByTimestampAsc(Long bookId);
-
-
-    List<ChatMessage> findByBookIdAndPageNumberOrderByTimestampAsc(Long bookId, Integer pageNumber);
-
-
-    List<ChatMessage> findByUserIdOrderByTimestampDesc(Long userId);
-
-
-    List<ChatMessage> findByBookIdAndAiGeneratedTrueOrderByTimestampAsc(Long bookId);
-
-
-    List<ChatMessage> findByBookIdAndAiGeneratedFalseOrderByTimestampAsc(Long bookId);
-
 
     @Query("SELECT cm FROM ChatMessage cm WHERE cm.book.id = :bookId AND cm.timestamp >= :timeThreshold ORDER BY cm.timestamp ASC")
     List<ChatMessage> findRecentMessagesByBookId(
