@@ -19,7 +19,6 @@ public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> 
             @Param("bookId") Long bookId,
             @Param("timeThreshold") LocalDateTime timeThreshold);
 
-    // Count messages by book
     long countByBookId(Long bookId);
 
 
@@ -32,7 +31,6 @@ public interface ChatMessageRepository extends JpaRepository<ChatMessage, Long> 
             @Param("bookId") Long bookId,
             @Param("pageNumber") Integer pageNumber);
 
-    // Find messages containing specific text (useful for searching conversations)
     @Query("SELECT cm FROM ChatMessage cm WHERE cm.book.id = :bookId " +
             "AND LOWER(cm.content) LIKE LOWER(CONCAT('%', :searchText, '%')) " +
             "ORDER BY cm.timestamp ASC")

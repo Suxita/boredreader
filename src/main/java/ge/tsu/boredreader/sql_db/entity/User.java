@@ -12,7 +12,7 @@ public class User {
 
     @Id
     @Column(length = 50, nullable = false)
-    private String username; // Using username as primary key
+    private String username;
 
     @Column(length = 500, nullable = false)
     private String password;

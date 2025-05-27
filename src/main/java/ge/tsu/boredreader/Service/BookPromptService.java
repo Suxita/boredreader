@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class BookPromptService {
-
     public String generateBookSpecificPrompt(Book book, Integer currentPage, String pdfContext, String conversationHistory) {
         String baseContext = formatBaseContext(currentPage, pdfContext, conversationHistory);
 
