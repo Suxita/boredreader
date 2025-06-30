@@ -1,22 +1,37 @@
 package ge.tsu.boredreader.sql_db.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 
 @Entity
 public class ChatMessage {
+    @Setter
+    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
+    @Getter
     @Column(columnDefinition = "TEXT")
     private String content;
 
+    @Setter
+    @Getter
     private LocalDateTime timestamp;
 
+    @Setter
+    @Getter
     private Integer pageNumber;
 
+    @Setter
+    @Getter
     private boolean aiGenerated;
+    @Setter
+    @Getter
     @ManyToOne
     @JoinColumn(name = "book_id")
     private Book book;
@@ -24,54 +39,6 @@ public class ChatMessage {
     @ManyToOne
     @JoinColumn(name = "username")
     private User user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
-
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-    }
-
-    public boolean isAiGenerated() {
-        return aiGenerated;
-    }
-
-    public void setAiGenerated(boolean aiGenerated) {
-        this.aiGenerated = aiGenerated;
-    }
-
-    public Book getBook() {
-        return book;
-    }
-
-    public void setBook(Book book) {
-        this.book = book;
-    }
 
 
 }

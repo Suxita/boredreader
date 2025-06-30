@@ -1,21 +1,27 @@
-// Auth.java
 package ge.tsu.boredreader.sql_db.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
 @Entity
 @Table(name = "authorities",
         uniqueConstraints = {@UniqueConstraint(columnNames = {"username", "authority"})})
 public class Auth {
 
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Setter
     @Column(name = "username", length = 50, nullable = false)
     private String username;
 
+    @Setter
     @Column(name = "authority", length = 50, nullable = false)
     private String authority;
 
@@ -34,34 +40,6 @@ public class Auth {
         this.username = user.getUsername();
         this.authority = authority;
         this.user = user;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    public User getUser() {
-        return user;
     }
 
     public void setUser(User user) {

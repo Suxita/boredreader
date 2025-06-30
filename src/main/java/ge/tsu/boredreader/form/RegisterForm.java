@@ -3,8 +3,13 @@ package ge.tsu.boredreader.form;
 import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Setter
+@Getter
 public class RegisterForm {
 
     @NotBlank(message = "Username is required")
@@ -23,30 +28,6 @@ public class RegisterForm {
     public RegisterForm(String username, String password, String confirmPassword) {
         this.username = username;
         this.password = password;
-        this.confirmPassword = confirmPassword;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
     }
 

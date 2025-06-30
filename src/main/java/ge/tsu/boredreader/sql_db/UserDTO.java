@@ -1,5 +1,6 @@
-// UserDTO.java
 package ge.tsu.boredreader.sql_db;
+
+import ge.tsu.boredreader.sql_db.entity.User;
 
 import java.util.Objects;
 
