@@ -21,11 +21,6 @@
                     <li class="nav-item"><a class="nav-link" th:href="@{/login}" th:text="#{nav.login}">About</a></li>
                 </ul>
 
-                <!-- Search Box added here -->
-                <div class="search-container">
-                    <input type="text" class="search-input" placeholder="Поиск книг...">
-                    <i class="search-icon fas fa-search"></i>
-                </div>
 
                 <div class="ms-auto">
                     <div class="dropdown">
@@ -37,6 +32,7 @@
                             <li><a class="dropdown-item" href="?lang=ka">ქართული</a></li>
                             <li><a class="dropdown-item" href="?lang=ru">Русский</a></li>
                         </ul>
+
                     </div>
                 </div>
             </div>
@@ -44,10 +40,8 @@
     </nav>
 </header>
 
-<!-- Make sure you include Bootstrap JS for the dropdown functionality -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Add active class to current language
         const urlParams = new URLSearchParams(window.location.search);
         const currentLang = urlParams.get('lang') || 'en';
 

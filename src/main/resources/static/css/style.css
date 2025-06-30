@@ -380,3 +380,188 @@ footer a:hover {
         width: 200px;
     }
 }
+
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    .reader-container {
+        height: 100vh;
+    }
+
+    .row.g-0.h-100 {
+        height: 100vh !important;
+    }
+
+    #pdfViewer {
+        height: 60vh;
+        order: 1;
+    }
+
+    #chatSidebar {
+        height: 40vh;
+        order: 2;
+        border-left: none;
+        border-top: 2px solid var(--primary-color);
+        position: relative;
+    }
+
+    .toolbar {
+        padding: 0.5rem !important;
+        position: sticky;
+        top: 0;
+    }
+
+    .toolbar .d-flex {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .toolbar button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    #pageNumber {
+        font-size: 0.8rem;
+        margin: 0 0.5rem;
+    }
+
+    .pdf-container {
+        height: calc(60vh - 80px);
+        padding: 0.5rem;
+    }
+
+    .chat-messages {
+        height: calc(40vh - 140px);
+        padding: 0.75rem;
+    }
+
+    .chat-input {
+        padding: 0.75rem !important;
+    }
+
+    .user-message, .ai-message {
+        max-width: 90%;
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    #chatInput {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+
+    #sendMessage {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .chat-header h5 {
+        font-size: 1rem;
+    }
+}
+
+/* Tablet landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .toolbar button {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .user-message, .ai-message {
+        font-size: 0.85rem;
+    }
+
+    .chat-messages {
+        height: calc(100vh - 180px);
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    #pdfViewer {
+        height: 55vh;
+    }
+
+    #chatSidebar {
+        height: 45vh;
+    }
+
+    .toolbar {
+        padding: 0.4rem !important;
+    }
+
+    .toolbar button {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.75rem;
+        margin: 0.1rem;
+    }
+
+    .toolbar .btn span {
+        display: none;
+    }
+
+    .toolbar .btn i {
+        margin: 0 !important;
+    }
+
+    .pdf-container {
+        height: calc(55vh - 70px);
+        padding: 0.25rem;
+    }
+
+    .chat-messages {
+        height: calc(45vh - 130px);
+        padding: 0.5rem;
+    }
+
+    .user-message, .ai-message {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+        max-width: 95%;
+    }
+
+    .chat-header {
+        padding: 0.75rem !important;
+    }
+
+    .chat-header h5 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape phone orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    #pdfViewer {
+        height: 70vh;
+    }
+
+    #chatSidebar {
+        height: 30vh;
+    }
+
+    .chat-messages {
+        height: calc(30vh - 120px);
+    }
+}
+
+
+
+
+
+/* Ensure proper scrolling */
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
