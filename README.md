@@ -48,6 +48,9 @@ mvn spring-boot:run -Dspring-boot.run.profiles=dev
 ---
 
 
+<details>
+<summary> წიგნებისა და ჩატის დეტალები</summary>
+
 ### PDF ფაილების ლოკაცია
 
 PDF ფაილების ამოღება ხდება ამ საქაღალდიდან:
@@ -94,3 +97,42 @@ src/main/resources/static/assets/pdfs
 ### **ჯოჯო**
 - დრამატული, ენერგიული და ეპიკური დისკუსიები
 - იდეალურია მოქმედებით სავსე ისტორიებისთვის
+
+</details>
+
+<details>
+<summary>Deploy-ს დეტალები</summary>
+
+### მარტივად jar-ით
+```
+mvn clean package
+
+# Run in production mode
+java -jar target/boredreader.jar --spring.profiles.active=prod
+```
+### docker-build-ით
+```dockerignore
+mvn clean package
+
+# Build Docker image
+docker build -t boredreader-app .  
+
+docker run -p 8080:8080 -e ANTHROPIC_API_KEY="ნამდვილი გასაღები" 
+-e SPRING_PROFILES_ACTIVE=docker 
+--name boredreader-container boredreader-app
+
+```
+</details>
+<details>
+<summary>showcases</summary>
+
+პირველი იტერაცია (შუალედური)
+![showcase.gif](src/docs/gif/showcase.gif)
+
+მეორე იტერაცია (ფინალური)
+![second.gif](src/docs/gif/second.gif)
+
+</details>
+
+#### თუ დაგწირდებათ დახმარება ან გაგიჩნდებათ კითხვა
+**feel free to contact me ;)**
