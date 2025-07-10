@@ -12,7 +12,7 @@
 
 1. [ollama install and run  guide](src/docs/InstallAndRun.md)
 2. [რა არის ოლლამა](src/docs/Ollama.md)
-3. [project struvture visualisation](src/docs/Structure.md)
+3. [project structure visualisation](src/docs/Structure.md)
 ### ძირითადი მახასიათებლები
 
 -  **PDF ფაილების მნახველი** - PDF ფაილების ასახვისთვის იქნა გამოყენეული PDF.js
