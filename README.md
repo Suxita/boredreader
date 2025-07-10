@@ -77,6 +77,7 @@ src/main/resources/static/assets/pdfs
 2. **BookPromtService** - სადაც ხდება პრომპტების (ანუ წიგნის მიხედვით პერსონაჟების) აღწერა
 
 **მაგალითი:**
+
 ![alt text](src/docs/img/prompt.png)
 
 ###  პერსონაჟები
