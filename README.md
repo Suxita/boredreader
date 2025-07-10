@@ -61,7 +61,9 @@ src/main/resources/static/assets/pdfs
 `BookService` ფაილში აღწერილია ყველა წიგნი.
 
 **მაგალითი:**
+
 ![alt text](src/docs/img/book.png)
+
 
 ### ჩატ სისტემის კომპონენტები
 
