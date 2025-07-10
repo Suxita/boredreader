@@ -1,20 +1,19 @@
-# 🦙 Ollama and Spring AI
+# 🦙 Ollama და Spring AI
 
+[ინსტალაციის და მასთან მუშაობის გაიდი](src/docs/InstallAndRun.md)
+[Ollama](https://ollama.com/) არის open source ჩარჩო დიდი ენობრივი მოდელების (LLMs) ლოკალურად, თქვენს მანქანაზე გასაშვებად. ის უზრუნველყოფს:
 
+- ლოკალურ API სერვერს LLM ინტერაქციებისთვის
+- მხარდაჭერას CPU/GPU-ზე გასაშვებად (დამოკიდებულია მოდელის ზომასა და ტექნიკურ მონაცემებზე)
+- წვდომას სხვადასხვა open source მოდელებთან
+- იგი გაძლევთ საშუალებას შექმნათ თქვენი მოდელები ან დაასწავლოთ არსებული მოდელის ბაზზაზე.
 
-[Ollama](https://ollama.com/) is an open-source framework for running large language models (LLMs) locally on your machine. It provides:
+## ხელმისაწვდომი მოდელები
 
-- A local API server for LLM interactions
-- Support for running on CPU/GPU (depending on model size and hardware)
-- Access to various open-source models
+ქვემოთ მოცემულია ყველა მოდელის ჩამონათვალი, რომლებიც შეგიძლიათ გაუშვათ Ollama-ს გამოყენებთ:
 
- 
-## Available Models
-
-Below is a comprehensive list of models you can run with Ollama:
-
-| Model | Parameters | Size | Download Command |
-|-------|------------|------|-----------------|
+| მოდელი | პარამეტრები | ზომა | ჩამოტვირთვის ბრძანება |
+|--------|-------------|------|---------------------|
 | **Gemma 3** | 1B | 815MB | `ollama run gemma3:1b` |
 | **Gemma 3** | 4B | 3.3GB | `ollama run gemma3` |
 | **Gemma 3** | 12B | 8.1GB | `ollama run gemma3:12b` |
@@ -41,70 +40,68 @@ Below is a comprehensive list of models you can run with Ollama:
 | **Granite-3.2** | 8B | 4.9GB | `ollama run granite3.2` |
 | **TinyLlama** | 1.1B | ~1GB | `ollama run tinyllama` |
 
-## Hardware Requirements
+## ტექნიკური მოთხოვნები
 
-### GPU Memory (VRAM) Requirements
+### GPU მეხსიერების (VRAM) მოთხოვნები
 
-Larger models (higher parameter count) require more GPU memory and computational power:
+დიდი მოდელები (მაღალი პარამეტრების რაოდენობა) მოითხოვს მეტ GPU მეხსიერებასა და გამოთვლით უნარს:
 
-- **Rule of Thumb**: ~1.2-1.5GB of VRAM per billion parameters for base inference
-- **Example**: A 7B parameter model needs roughly 8-10GB VRAM minimum
+- **ოქროს წესი**: ~1.2-1.5GB VRAM მილიარდ პარამეტრზე ძირითადი ინფერენციისთვის
+- **მაგალითი**: 7B პარამეტრიან მოდელს სჭირდება რაღაც 8-10GB VRAM მინიმუმ
 
+## პროექტის განხორციელება
 
-## Project Implementation
+ჩემს პროექტში, ვტესტე ორი მოდელი:
 
-In my project, i tested two models:
-
-1. **Mistral** (default model when integrating in spring project)
-    - Parameters: 7B
-    - Size: 4.1GB
-    - Good balance of performance and resource requirements
+1. **Mistral** (ნაგულისხმევი მოდელი spring პროექტში ინტეგრირებისას)
+   - პარამეტრები: 7B
+   - ზომა: 4.1GB
+   - კარგი ბალანსი წარმადობისა და რესურსული მოთხოვნებისთვის
 
 2. **TinyLlama**
-    - Parameters: 1.1B
-    - Size: 600MB-1GB
-    - good for general testing purposes but nothing more
+   - პარამეტრები: 1.1B
+   - ზომა: 600MB-1GB
+   - კარგია ზოგადი ტესტირებისთვის, მაგრამ მეტი არაფერი
 
+***თუ სხვა მოდელის გამოყენება გინდათ, მიუთითეთ იგი properties-ში***
 
-***if u want to use other model enter it in properties***
-### System Memory (RAM) Requirements
+### სისტემის მეხსიერების (RAM) მოთხოვნები
 
-Depending on model size:
+მოდელის ზომის მიხედვით:
 
-| Model Size | RAM Recommendation |
-|------------|-------------------|
-| Small (1-7B) | 8GB minimum |
-| Medium (7-13B) | 16GB+ recommended |
-| Large (13B+) | 32GB+ high-end |
+| მოდელის ზომა | RAM რეკომენდაცია |
+|-------------|------------------|
+| პატარა (1-7B) | 8GB მინიმუმ |
+| საშუალო (7-13B) | 16GB+ რეკომენდებული |
+| დიდი (13B+) | 32GB+ მაღალი დონე |
 
+## Spring AI ინტეგრაცია
 
-## Spring AI Integration
+Spring AI არის Java ბიბლიოთეკა, რომელიც უზრუნველყოფს ინტეგრაციას LLM-ებსა და Spring ეკოსისტემას შორის შემდეგი თვისებებით:
 
-Spring AI is a Java library that provides integration between LLMs and the Spring ecosystem with these features:
+### ძირითადი თვისებები
 
-### Key Features
+1. **ერთიანი API**
+   - თანმიმდევრული ინტერფეისი სხვადასხვა AI მოდელებისთვის (OpenAI, Anthropic, ლოკალური მოდელები)
 
-1. **Unified API**
-    - Consistent interface for different AI models (OpenAI, Anthropic, local models)
+2. **Spring ინტეგრაცია**
+   - უწყვეტი ინტეგრაცია Spring Boot-სა და მასთან დაკავშირებულ ჩარჩოებთან
 
-2. **Spring Integration**
-    - Seamless integration with Spring Boot and related frameworks
+3. **Prompt Engineering მხარდაჭერა**
+   - ინსტრუმენტები შაბლონების, მართვისა და prompt-ების ოპტიმიზაციისთვის
 
-3. **Prompt Engineering Support**
-    - Tools for templating, managing, and optimizing prompts
+4. **Vector Database მხარდაჭერა**
+   - Embedding ოპერაციები და ინტეგრაცია retrieval-augmented generation (RAG)-ისთვის
 
-4. **Vector Database Support**
-    - Embedding operations and integration for retrieval-augmented generation (RAG)
+5. **მოდელის აბსტრაქცია**
+   - მოდელებს შორის გადართვა აპლიკაციის კოდის შეცვლის გარეშე
 
-5. **Model Abstraction**
-    - Switch between models without changing application code
+6. **Streaming პასუხები**
+   - AI მოდელების streaming პასუხების ეფექტური მართვა
 
-6. **Streaming Responses**
-    - Handle streaming responses from AI models efficiently
-
-***Useful links for more detailed information***
-1) [ollamas github](https://github.com/ollama/ollama)
+***სასარგებლო ბმულები დეტალური ინფორმაციისთვის***
+1) [ollama-ს github](https://github.com/ollama/ollama)
 2) [Spring ai](https://spring.io/projects/spring-ai)
 
 ### Ps
-forgot to add that u can train local llms with your own data, it might be fun and challenging, the possibility is there 
+დავივიწყე დავამატო, რომ შეგიძლიათ ლოკალური llm-ების ტრენინგი თქვენი საკუთარი მონაცემებით, შეიძლება მსახიობი და გამოწვევადი იყოს, შესაძლებლობა არსებობს 

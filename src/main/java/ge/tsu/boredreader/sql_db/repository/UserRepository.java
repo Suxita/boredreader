@@ -1,4 +1,3 @@
-// UserRepository.java
 package ge.tsu.boredreader.sql_db.repository;
 
 import ge.tsu.boredreader.sql_db.entity.User;
