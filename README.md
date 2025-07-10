@@ -9,10 +9,11 @@
 ასევე **Spring AI**-სთან სწრაფა მუშაობის დასაწყებად გირჩევთ შემდეგ ფლეილისტს:
 [Spring AI Tutorials](https://youtube.com/playlist?list=PLsyeobzWxl7qJSZcMaN18c5l-k2n1FWHx&si=rhjoU-qB9nOtJkpJ)
 
-
+#### ასევე გირჩევთ გაეცნოთ:
 1. [ollama install and run  guide](src/docs/InstallAndRun.md)
 2. [რა არის ოლლამა](src/docs/Ollama.md)
 3. [project structure visualisation](src/docs/Structure.md)
+
 ### ძირითადი მახასიათებლები
 
 -  **PDF ფაილების მნახველი** - PDF ფაილების ასახვისთვის იქნა გამოყენეული PDF.js
